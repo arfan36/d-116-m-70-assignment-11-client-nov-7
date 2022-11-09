@@ -41,7 +41,7 @@ const Login = () => {
     return (
         <div className="hero">
             <div className="hero-content">
-                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 py-20">
+                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 py-20 mx-20">
                     <h1 className="text-5xl font-bold text-center">Login!</h1>
                     <form onSubmit={handleLogin} className="card-body">
                         <div className="form-control">
@@ -67,6 +67,9 @@ const Login = () => {
                         </p>
                     </form>
                     <p className='text-center mb-3'>New to Here, Please <Link className='text-orange-600 font-bold' to={'/signup'}>Sign Up</Link></p>
+                    <p className='text-center'>
+                        <progress className="progress w-56"></progress>
+                    </p>
                     <SocialLogin></SocialLogin>
                 </div>
             </div>

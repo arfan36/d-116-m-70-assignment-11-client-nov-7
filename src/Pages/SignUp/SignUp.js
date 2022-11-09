@@ -39,7 +39,7 @@ const SignUp = () => {
     return (
         <div className="hero">
             <div className="hero-content">
-                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 py-20">
+                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 py-20 mx-20">
                     <h1 className="text-5xl font-bold text-center">Sign Up!</h1>
                     <form onSubmit={handleSignUp} className="card-body">
                         <div className="form-control">
