@@ -5,7 +5,7 @@ const Profile = () => {
     useTitle('Profile - ');
     return (
         <div>
-            <h2>This is profile</h2>
+            <h2 className='text-center text-2xl'>This Feature coming soon...</h2>
         </div>
     );
 };
