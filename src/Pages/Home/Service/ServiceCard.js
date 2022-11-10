@@ -11,7 +11,9 @@ const ServiceCard = ({ service }) => {
                     {name}
                     <div className="badge badge-secondary">NEW</div>
                 </h2>
-                <p className='text-2xl text-orange-600 font-semibold'>Price: ${price}</p>
+                <p className='text-2xl text-accent font-semibold'>
+                    Price: $<span className='text-orange-600'>{price}</span>
+                </p>
                 <p>
                     {
                         description.length < 100 ?
