@@ -60,7 +60,7 @@ const Login = () => {
                             </label>
                         </div>
                         <div className="form-control mt-6">
-                            <input className='btn btn-primary' type="submit" value="Login" />
+                            <input className='btn btn-accent' type="submit" value="Login" />
                         </div>
                         <p className='text-red-600'>
                             {error}

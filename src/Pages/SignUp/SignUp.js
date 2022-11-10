@@ -61,12 +61,15 @@ const SignUp = () => {
                             <input type="password" name='password' placeholder="password" className="input input-bordered" required />
                         </div>
                         <div className="form-control mt-6">
-                            <input className='btn btn-primary' type="submit" value="Sign Up" />
+                            <input className='btn btn-accent' type="submit" value="Sign Up" />
                         </div>
                         <p className='text-red-600'>
                             {error}
                         </p>
                     </form>
+                    <p className='text-center mb-3'>
+                        <progress className="progress w-56"></progress>
+                    </p>
                     <p className='text-center'>Already have an account? <Link className='text-orange-600 font-bold' to={'/login'}>Login</Link></p>
                 </div>
             </div>
