@@ -3,6 +3,9 @@ import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import logo from '../../../assets/logo/logo.png';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
+import Tippy from '@tippyjs/react';
+import 'tippy.js/dist/tippy.css';
+import { FaUserCircle } from "react-icons/fa";
 
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -28,6 +31,35 @@ const Header = () => {
                 :
                 <li className='font-semibold'><Link to={'/login'}>Login</Link></li>
         }
+        <li>
+            <Link to={'/profile'} className='my-auto'>
+                {
+                    user?.photoURL ?
+                        // tippy tooltips--------------------------
+                        <Tippy
+                            content={
+                                <>
+                                    <h3 className='text-sm md:text-2xl'>{user?.displayName}</h3>
+                                    <img
+                                        // style={{ height: '200px' }}
+                                        className='rounded-md h-24 md:h-48'
+                                        src={user?.photoURL}
+                                        alt=''
+                                    ></img>
+                                </>
+                            }
+                        >
+                            <img
+                                className='rounded-full h-8'
+                                src={user?.photoURL}
+                                alt=''
+                            ></img>
+                        </Tippy>
+                        :
+                        <FaUserCircle />
+                }
+            </Link>
+        </li>
     </>;
 
     return (
@@ -51,9 +83,6 @@ const Header = () => {
                     {menuItems}
                 </ul>
             </div>
-            {/* <div className="navbar-end">
-                <button className="btn btn-outline btn-warning">Appoinment</button>
-            </div> */}
         </div>
     );
 };
