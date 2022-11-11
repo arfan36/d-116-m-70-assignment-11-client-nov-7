@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ServiceCard from './ServiceCard';
+import './Service.css';
+import { Link } from 'react-router-dom';
 
 const Service = () => {
     const [services, setServices] = useState([]);
@@ -10,7 +12,7 @@ const Service = () => {
     }, []);
 
     return (
-        <div>
+        <div className='service py-8 mb-8 rounded-2xl'>
             <div className='text-center mb-4 w-3/4 mx-auto'>
                 <p className="text-3xl font-bold text-orange-600">Food Item</p>
             </div>
@@ -21,6 +23,11 @@ const Service = () => {
                         service={service}
                     ></ServiceCard>)
                 }
+            </div>
+            <div className='text-center mt-4'>
+                <Link to={'/service-all'}>
+                    <button className='btn btn-accent'>See All</button>
+                </Link>
             </div>
         </div>
     );
