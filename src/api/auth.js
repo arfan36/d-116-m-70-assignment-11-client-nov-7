@@ -4,7 +4,7 @@ export const setAuthToken = (user) => {
     };
 
     // get jwt token
-    fetch(`http://localhost:5000/jwt`, {
+    fetch(`https://d-116-1-m-70-assignment-11-server-nov-7.vercel.app/jwt`, {
         method: 'POST',
         headers: {
             'content-type': 'application/json'

@@ -35,7 +35,7 @@ const ServiceAllCard = ({ service }) => {
                             </>
                     }
                 </p>
-                <Link to={`/checkout/${_id}`}>
+                <Link to={`/service/${_id}`}>
                     <button className='btn btn-outline btn-accent w-full'>View Details</button>
                 </Link>
             </div>

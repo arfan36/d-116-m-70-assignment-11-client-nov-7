@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import useTitle from '../../../hooks/useTitle';
 import ServiceAllCard from './ServiceAllCard';
+import '../Service/Service.css';
 
 const ServiceAll = () => {
     const [serviceAll, setServiceAll] = useState([]);
     useTitle('All Items - ');
 
     useEffect(() => {
-        fetch('http://localhost:5000/service-all')
+        fetch('https://d-116-1-m-70-assignment-11-server-nov-7.vercel.app/service-all')
             .then(res => res.json())
             .then(data => setServiceAll(data));
     }, [serviceAll]);
