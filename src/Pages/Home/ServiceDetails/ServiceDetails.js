@@ -31,7 +31,7 @@ const ServiceDetails = () => {
                         Price: $<span className='text-orange-600'>{price}</span>
                     </p>
                     <p> {description} </p>
-                    <Link to={`/reviews/${_id}`}><button className='btn btn-outline btn-accent w-full font-bold'>Please Review</button></Link>
+                    <Link to={`/add-review/${_id}`}><button className='btn btn-outline btn-accent w-full font-bold'>Please Review</button></Link>
                 </div>
             </div>
             <div>

@@ -3,6 +3,7 @@ import { Link, useLoaderData } from 'react-router-dom';
 import 'react-photo-view/dist/react-photo-view.css';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import useTitle from '../../hooks/useTitle';
+import AddSingleReview from './AddSingleReview';
 
 const AddReview = () => {
     const service = useLoaderData();
@@ -31,12 +32,12 @@ const AddReview = () => {
                     </p>
                     <p> {description} </p>
                     <Link to={`/service/${_id}`}>
-                        <button className='btn btn-outline btn-accent w-full font-bold'>View Details</button>
+                        <button className='btn btn-info w-full font-bold'>View Details</button>
                     </Link>
                 </div>
             </div>
             <div>
-                <h2>add review</h2>
+                <AddSingleReview service={service}></AddSingleReview>
             </div>
         </div>
     );
