@@ -6,6 +6,7 @@ import ServiceAll from "../../Pages/Home/ServiceAll/ServiceAll";
 import ServiceDetails from "../../Pages/Home/ServiceDetails/ServiceDetails";
 import Login from "../../Pages/Login/Login";
 import Profile from "../../Pages/Profile/Profile";
+import AddReview from "../../Pages/Reviews/AddReview";
 import SignUp from "../../Pages/SignUp/SignUp";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
@@ -39,8 +40,13 @@ const router = createBrowserRouter([
             },
             {
                 path: '/service/:id',
-                loader: ({ params }) => fetch(`https://d-116-1-m-70-assignment-11-server-nov-7.vercel.app/service/${params.id}`),
-                element: <ServiceDetails></ServiceDetails>
+                loader: ({ params }) => fetch(`http://localhost:5000/service/${params.id}`),
+                element: <ServiceDetails></ServiceDetails>,
+            },
+            {
+                path: '/reviews/:id',
+                loader: ({ params }) => fetch(`http://localhost:5000/service/${params.id}`),
+                element: <AddReview></AddReview>
             },
         ]
     },

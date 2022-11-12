@@ -2,13 +2,12 @@ import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import 'react-photo-view/dist/react-photo-view.css';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
-import Reviews from '../../Reviews/Reviews';
-import useTitle from '../../../hooks/useTitle';
+import useTitle from '../../hooks/useTitle';
 
-const ServiceDetails = () => {
+const AddReview = () => {
     const service = useLoaderData();
     const { _id, name, img, price, description } = service;
-    useTitle('Details - ');
+    useTitle('Add Review - ');
 
     return (
         <div className='grid grid-cols-1 md:grid-cols-2 gap-6 justify-items-center mb-6'>
@@ -31,14 +30,15 @@ const ServiceDetails = () => {
                         Price: $<span className='text-orange-600'>{price}</span>
                     </p>
                     <p> {description} </p>
-                    <Link to={`/reviews/${_id}`}><button className='btn btn-outline btn-accent w-full font-bold'>Please Review</button></Link>
+                    <Link to={`/service/${_id}`}>
+                        <button className='btn btn-outline btn-accent w-full font-bold'>View Details</button>
+                    </Link>
                 </div>
             </div>
             <div>
-                <Reviews></Reviews>
+                <h2>add review</h2>
             </div>
         </div>
     );
 };
-
-export default ServiceDetails;
+export default AddReview;

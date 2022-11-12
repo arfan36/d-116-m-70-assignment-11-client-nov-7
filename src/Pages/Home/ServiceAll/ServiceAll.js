@@ -8,7 +8,8 @@ const ServiceAll = () => {
     useTitle('All Items - ');
 
     useEffect(() => {
-        fetch('https://d-116-1-m-70-assignment-11-server-nov-7.vercel.app/service-all')
+        // all items route
+        fetch('http://localhost:5000/service-all')
             .then(res => res.json())
             .then(data => setServiceAll(data));
     }, [serviceAll]);

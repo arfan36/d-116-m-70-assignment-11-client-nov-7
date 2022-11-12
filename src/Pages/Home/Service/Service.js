@@ -6,7 +6,8 @@ import { Link } from 'react-router-dom';
 const Service = () => {
     const [services, setServices] = useState([]);
     useEffect(() => {
-        fetch('https://d-116-1-m-70-assignment-11-server-nov-7.vercel.app/services')
+        // limit 3 items route
+        fetch('http://localhost:5000/services')
             .then(res => res.json())
             .then(data => setServices(data));
     }, []);
