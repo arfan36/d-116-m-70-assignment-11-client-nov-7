@@ -10,6 +10,8 @@ const AddSingleReview = ({ service }) => {
     const { _id, name, img, price, description } = service;
     const { user } = useContext(AuthContext);
 
+
+
     // when user not logged in
     const loginButton = <>
         <div className='text-center'>
@@ -52,11 +54,14 @@ const AddSingleReview = ({ service }) => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    setError(data.message);
+                    if (data.message) {
+                        setError(data.message);
+                    }
                     if (data.acknowledged) {
                         toast.success('successfully posted');
                         form.reset();
                         setError('');
+                        setShowLoginBtn('');
                     }
                 })
                 .catch(err => setError(err.message));
