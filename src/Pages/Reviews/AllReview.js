@@ -1,8 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const AllReview = ({ review }) => {
 
-    const { product_id, product_name, user_name, user_email, user_photoURL, review_message } = review;
+    const { _id, product_name, user_name, user_email, user_photoURL, review_message } = review;
 
     return (
         <div >
@@ -15,11 +16,14 @@ const AllReview = ({ review }) => {
                 <hr />
                 <div className='flex flex-col'>
                     <div className='flex justify-between'>
-                        <p>Name: {product_name}</p>
+                        <p>Name: <span className='text-accent font-bold'>{product_name}</span></p>
                         <p>Date</p>
                     </div>
-                    <p className='text-sm'>product id: <span className='text-amber-500'>{product_id}</span></p>
-                    <p className='italic'>"{review_message}"</p>
+                    <p className='text-sm'>Review Id: <span className='text-orange-400'>{_id}</span></p>
+                    <p className='italic mt-3'>"{review_message}"</p>
+                </div>
+                <div className='text-end'>
+                    <Link to={`/update-review/${_id}`}><button className='btn btn-outline btn-accent mt-2'>Edit Review</button></Link>
                 </div>
             </div>
             <hr />
