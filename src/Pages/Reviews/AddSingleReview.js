@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const AddSingleReview = ({ service }) => {
@@ -10,6 +10,9 @@ const AddSingleReview = ({ service }) => {
     const { _id, name, img, price, description } = service;
     const { user } = useContext(AuthContext);
 
+    const navigate = useNavigate();
+    // const location = useLocation();
+    // const from = location.state?.from?.pathname || '/';
 
 
     // when user not logged in
@@ -62,6 +65,7 @@ const AddSingleReview = ({ service }) => {
                         form.reset();
                         setError('');
                         setShowLoginBtn('');
+                        navigate(`/service/${_id}`);
                     }
                 })
                 .catch(err => setError(err.message));

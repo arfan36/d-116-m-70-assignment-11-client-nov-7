@@ -12,7 +12,7 @@ const ServiceDetails = () => {
 
     return (
         <div className='grid grid-cols-1 md:grid-cols-2 gap-6 justify-items-center mb-6'>
-            <div className="card w-80 bg-base-100 shadow-xl">
+            <div className="card w-80 bg-base-100 shadow-xl h-fit">
                 <figure>
                     <PhotoProvider>
                         <div className="foo">
