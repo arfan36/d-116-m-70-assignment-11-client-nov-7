@@ -17,9 +17,9 @@ const AllReview = ({ review, handleReviewDelete }) => {
                 <div className='flex flex-col'>
                     <div className='flex justify-between'>
                         <p>Name: <span className='text-accent font-bold'>{product_name}</span></p>
-                        <p>Date</p>
+                        <p></p>
                     </div>
-                    <p className='text-sm'>Review Id: <span className='text-orange-400'>{_id}</span></p>
+                    <p className='text-sm'>Review Id: <span className='text-accent'>{_id}</span></p>
                     <p className='italic mt-3'>"{review_message}"</p>
                 </div>
                 <div className='flex justify-between'>
@@ -27,7 +27,7 @@ const AllReview = ({ review, handleReviewDelete }) => {
                         <button className='underline text-cyan-800 mt-2'>Edit Review</button>
                     </Link>
                     <Link>
-                        <button onClick={() => handleReviewDelete(_id)} className='underline text-cyan-800 mt-2'>Delete Review</button>
+                        <button onClick={() => handleReviewDelete(_id)} className='underline text-red-600 mt-2'>Delete Review</button>
                     </Link>
                 </div>
             </div>

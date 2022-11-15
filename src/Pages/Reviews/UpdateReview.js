@@ -80,7 +80,7 @@ const UpdateReview = () => {
                     <p className='text-2xl text-accent font-semibold'>
                         Price: $<span className='text-orange-600'>{product_price}</span>
                     </p>
-                    <p>Product Id: <span className='text-orange-400'>{product_id}</span></p>
+                    <p>Product Id: <span className='text-accent'>{product_id}</span></p>
                     <p> {product_description} </p>
                     <Link to={`/service/${product_id}`}>
                         <button className='btn btn-outline btn-accent w-full font-bold'>All Review</button>
@@ -95,7 +95,7 @@ const UpdateReview = () => {
                     <h5 className='text-sm'>{user_name && user_name}</h5>
                 </div>
                 <p className='text-center'>email: {user_email}</p>
-                <p>Review Id: <span className='text-orange-400 font-semibold'>{_id}</span></p>
+                <p>Review Id: <span className='text-accent font-semibold'>{_id}</span></p>
                 <form onSubmit={handleUpdateReview}>
                     <textarea onChange={handleInputChange} defaultValue={review_message} className='textarea textarea-bordered h-60 w-full' type="text" name='review_message' placeholder='Edit review' required />
                     <button type='submit' className='btn btn-outline btn-accent'>Post Review</button>

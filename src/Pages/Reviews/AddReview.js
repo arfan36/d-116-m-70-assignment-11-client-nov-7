@@ -30,7 +30,7 @@ const AddReview = () => {
                     <p className='text-2xl text-accent font-semibold'>
                         Price: $<span className='text-orange-600'>{price}</span>
                     </p>
-                    <p>Product Id: <span className='text-orange-400'>{_id}</span></p>
+                    <p>Product Id: <span className='text-accent'>{_id}</span></p>
                     <p> {description} </p>
                     <Link to={`/service/${_id}`}>
                         <button className='btn btn-outline btn-accent w-full font-bold'>All Review</button>

@@ -67,23 +67,26 @@ const Reviews = ({ service }) => {
     return (
         <div>
             <h2 className='text-2xl font-semibold'>Total Reviews: {reviews.length}</h2>
-            <div className=''>
+            <div className='md:mr-20'>
                 {
                     reviews.length === 0 &&
-                    <div className='flex items-center w-auto md:w-80' style={{ minHeight: "30vh" }}>
-                        <h2 className='text-2xl'>No reviews were added</h2>
+                    <div className='flex justify-center items-center h-24 md:h-[600px]'>
+                        <h2 className='text-2xl font-bold text-orange-600'>No reviews were added</h2>
                     </div>
                 }
             </div>
-            {
-                reviews.map(review => <AllReview
-                    key={review._id}
-                    review={review}
-                    service={service}
-                    handleReviewDelete={handleReviewDelete}
-                ></AllReview>)
-            }
-            <p>{error}</p>
+
+            <div>
+                {
+                    reviews.map(review => <AllReview
+                        key={review._id}
+                        review={review}
+                        service={service}
+                        handleReviewDelete={handleReviewDelete}
+                    ></AllReview>)
+                }
+                <p>{error}</p>
+            </div>
         </div>
     );
 };
