@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const AllReview = ({ review }) => {
+const AllReview = ({ review, handleReviewDelete }) => {
 
     const { _id, product_name, user_name, user_email, user_photoURL, review_message } = review;
 
@@ -22,8 +22,13 @@ const AllReview = ({ review }) => {
                     <p className='text-sm'>Review Id: <span className='text-orange-400'>{_id}</span></p>
                     <p className='italic mt-3'>"{review_message}"</p>
                 </div>
-                <div className='text-end'>
-                    <Link to={`/update-review/${_id}`}><button className='btn btn-outline btn-accent mt-2'>Edit Review</button></Link>
+                <div className='flex justify-between'>
+                    <Link to={`/update-review/${_id}`}>
+                        <button className='underline text-cyan-800 mt-2'>Edit Review</button>
+                    </Link>
+                    <Link>
+                        <button onClick={() => handleReviewDelete(_id)} className='underline text-cyan-800 mt-2'>Delete Review</button>
+                    </Link>
                 </div>
             </div>
             <hr />
