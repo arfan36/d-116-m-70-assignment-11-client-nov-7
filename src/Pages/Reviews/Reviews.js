@@ -67,6 +67,14 @@ const Reviews = ({ service }) => {
     return (
         <div>
             <h2 className='text-2xl font-semibold'>Total Reviews: {reviews.length}</h2>
+            <div className=''>
+                {
+                    reviews.length === 0 &&
+                    <div className='flex items-center w-auto md:w-80' style={{ minHeight: "30vh" }}>
+                        <h2 className='text-2xl'>No reviews were added</h2>
+                    </div>
+                }
+            </div>
             {
                 reviews.map(review => <AllReview
                     key={review._id}

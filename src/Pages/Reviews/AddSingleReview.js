@@ -77,10 +77,14 @@ const AddSingleReview = ({ service }) => {
             <form onSubmit={handlePostReview} className='mr-3'>
                 <h2 className='font-bold text-2xl mb-3'>Write a Review</h2>
                 <div>
+                    <span className='font-bold'>Your Name :</span>
                     <input className='input input-ghost input-bordered w-full mb-2' type="text" name="name" placeholder='Your Name' defaultValue={user?.displayName} required />
+                    <span className='font-bold'>Photo url :</span>
                     <input className='input input-ghost input-bordered w-full mb-2' type="text" name="photoURL" placeholder='User Photo URL' defaultValue={user?.photoURL} required />
+                    <span className='font-bold'>Email Address :</span>
                     <input className='input input-ghost input-bordered w-full mb-2' type="email" name="email" placeholder='Your Email' defaultValue={user?.email} readOnly />
                 </div>
+                <span className='font-bold'>Your Message :</span>
                 <textarea className='textarea textarea-bordered h-24 w-full' name="message" placeholder='Your Review' required></textarea>
                 <input className='btn btn-outline btn-accent w-full' type="submit" value="Post Review" />
             </form>
