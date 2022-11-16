@@ -2,29 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import 'react-photo-view/dist/react-photo-view.css';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
-import toast from 'react-hot-toast';
 
-const ServiceCard = ({ service }) => {
+const AddServiceHome = ({ service, handleDeleteService }) => {
     const { _id, name, img, price, description } = service;
-
-    // handle Add Service
-    const handleAddToService = (id) => {
-        fetch(`http://localhost:5000/my-service/${id}`, {
-            method: 'PUT',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(service)
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                if (data.acknowledged) {
-                    toast.success('Service added to Add Service');
-                }
-            })
-            .catch(err => console.error('err', err));
-    };
 
     return (
         <div className="card w-80 bg-base-100 shadow-xl">
@@ -55,7 +35,7 @@ const ServiceCard = ({ service }) => {
                             </>
                     }
                 </p>
-                <p><button onClick={() => handleAddToService(_id)} className='badge'>Add Service</button></p>
+                <p><button onClick={() => handleDeleteService(_id)} className='badge badge-warning'>Delete Service</button></p>
                 <Link to={`/service/${_id}`}>
                     <button className='btn btn-outline btn-accent w-full'>View Details</button>
                 </Link>
@@ -64,4 +44,4 @@ const ServiceCard = ({ service }) => {
     );
 };
 
-export default ServiceCard;
+export default AddServiceHome;

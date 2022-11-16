@@ -1,10 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import 'react-photo-view/dist/react-photo-view.css';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import toast from 'react-hot-toast';
+import { Link } from 'react-router-dom';
 
-const ServiceCard = ({ service }) => {
+const AddServiceAllCard = ({ service }) => {
     const { _id, name, img, price, description } = service;
 
     // handle Add Service
@@ -64,4 +64,4 @@ const ServiceCard = ({ service }) => {
     );
 };
 
-export default ServiceCard;
+export default AddServiceAllCard;

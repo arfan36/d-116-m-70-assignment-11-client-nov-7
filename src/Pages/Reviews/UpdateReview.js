@@ -30,7 +30,7 @@ const UpdateReview = () => {
         description: product_description
     };
 
-    // handle Add To My Service
+    // handle Add Service
     const handleAddToService = (id) => {
         fetch(`http://localhost:5000/my-service/${id}`, {
             method: 'PUT',
@@ -43,7 +43,7 @@ const UpdateReview = () => {
             .then(data => {
                 console.log(data);
                 if (data.acknowledged) {
-                    toast.success('Service added to My Service');
+                    toast.success('Service added to Add Service');
                 }
             })
             .catch(err => console.error('err', err));
@@ -108,7 +108,7 @@ const UpdateReview = () => {
                     </p>
                     <p>Product Id: <span className='text-accent'>{product_id}</span></p>
                     <p> {product_description} </p>
-                    <p>add to <button onClick={() => handleAddToService(product_id)} className='badge'>My Service</button></p>
+                    <p><button onClick={() => handleAddToService(product_id)} className='badge'>Add Service</button></p>
                     <Link to={`/service/${product_id}`}>
                         <button className='btn btn-outline btn-accent w-full font-bold'>All Review</button>
                     </Link>

@@ -7,7 +7,7 @@ import toast from 'react-hot-toast';
 const ServiceAllCard = ({ service }) => {
     const { _id, name, img, price, description } = service;
 
-    // handle Add To My Service
+    // handle Add Service
     const handleAddToService = (id) => {
         fetch(`http://localhost:5000/my-service/${id}`, {
             method: 'PUT',
@@ -20,7 +20,7 @@ const ServiceAllCard = ({ service }) => {
             .then(data => {
                 console.log(data);
                 if (data.acknowledged) {
-                    toast.success('Service added to My Service');
+                    toast.success('Service added to Add Service');
                 }
             })
             .catch(err => console.error('err', err));
@@ -55,7 +55,7 @@ const ServiceAllCard = ({ service }) => {
                             </>
                     }
                 </p>
-                <p>add to <button onClick={() => handleAddToService(_id)} className='badge'>My Service</button></p>
+                <p><button onClick={() => handleAddToService(_id)} className='badge'>Add Service</button></p>
                 <Link to={`/service/${_id}`}>
                     <button className='btn btn-outline btn-accent w-full'>View Details</button>
                 </Link>
