@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const AllReview = ({ review, handleReviewDelete }) => {
+    const { user } = useContext(AuthContext);
 
     const { _id, product_name, user_name, user_email, user_photoURL, review_message } = review;
 
@@ -22,14 +24,17 @@ const AllReview = ({ review, handleReviewDelete }) => {
                     <p className='text-sm'>Review Id: <span className='text-accent'>{_id}</span></p>
                     <p className='italic mt-3'>"{review_message}"</p>
                 </div>
-                <div className='flex justify-between'>
-                    <Link to={`/update-review/${_id}`}>
-                        <button className='underline text-cyan-800 mt-2'>Edit Review</button>
-                    </Link>
-                    <Link>
-                        <button onClick={() => handleReviewDelete(_id)} className='underline text-red-600 mt-2'>Delete Review</button>
-                    </Link>
-                </div>
+                {
+                    user?.email === user_email &&
+                    <div className='flex justify-between'>
+                        <Link to={`/update-review/${_id}`}>
+                            <button className='underline text-cyan-800 mt-2'>Edit Review</button>
+                        </Link>
+                        <Link>
+                            <button onClick={() => handleReviewDelete(_id)} className='underline text-red-600 mt-2'>Delete Review</button>
+                        </Link>
+                    </div>
+                }
             </div>
             <hr />
 
