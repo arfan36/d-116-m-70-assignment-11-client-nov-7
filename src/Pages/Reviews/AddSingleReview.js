@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
@@ -6,14 +6,21 @@ import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 const AddSingleReview = ({ service }) => {
     const [error, setError] = useState('');
     const [ShowLoginBtn, setShowLoginBtn] = useState('');
+    const [userReview, setUserReview] = useState([]);
 
-    const { _id, name, img, price, description } = service;
     const { user } = useContext(AuthContext);
+    const { _id, name, img, price, description } = service;
 
     const navigate = useNavigate();
-    // const location = useLocation();
-    // const from = location.state?.from?.pathname || '/';
 
+    // get review
+    useEffect(() => {
+        fetch(`http://localhost:5000/reviews?user_email=${user?.email}`)
+            .then(res => res.json())
+            .then(data => setUserReview(data));
+    }, [user?.email, userReview]);
+
+    const userReviewObject = userReview.find(review => review.user_email === user?.email);
 
     // when user not logged in
     const loginButton = <>
@@ -46,7 +53,7 @@ const AddSingleReview = ({ service }) => {
             setShowLoginBtn(loginButton);
         }
         else {
-            // create (C) insertOne
+            // Create (C) or Update (U)
             fetch(`http://localhost:5000/reviews/${_id}`, {
                 method: 'PUT',
                 headers: {
@@ -86,7 +93,7 @@ const AddSingleReview = ({ service }) => {
                     <input className='input input-ghost input-bordered w-full mb-2' type="email" name="email" placeholder='Your Email' defaultValue={user?.email} readOnly />
                 </div>
                 <span className='font-bold'>Your Message :</span>
-                <textarea className='textarea textarea-bordered h-24 w-full' name="message" placeholder='Your Review' required></textarea>
+                <textarea className='textarea textarea-bordered h-24 w-full' name="message" placeholder='Your Review' defaultValue={userReviewObject?.review_message} required></textarea>
                 <input className='btn btn-outline btn-accent w-full' type="submit" value="Post Review" />
             </form>
             <p className='text-red-600 text-center mt-2 text-2xl'>{error}</p>
