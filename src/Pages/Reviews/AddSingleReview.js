@@ -47,8 +47,8 @@ const AddSingleReview = ({ service }) => {
         }
         else {
             // create (C) insertOne
-            fetch(`http://localhost:5000/reviews`, {
-                method: 'POST',
+            fetch(`http://localhost:5000/reviews/${_id}`, {
+                method: 'PUT',
                 headers: {
                     'content-type': 'application/json',
                     authorization: `Bearer ${localStorage.getItem('foodie')}`
@@ -57,6 +57,7 @@ const AddSingleReview = ({ service }) => {
             })
                 .then(res => res.json())
                 .then(data => {
+                    console.log(data);
                     if (data.message) {
                         setError(data.message);
                     }

@@ -1,32 +1,12 @@
 import React, { useContext } from 'react';
 import 'react-photo-view/dist/react-photo-view.css';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
-// import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const AddServiceAllCard = ({ service, handleDeleteService }) => {
     const { user } = useContext(AuthContext);
     const { _id, name, img, price, description, user_email } = service;
-
-    // handle Add Service
-    // const handleAddToService = (id) => {
-    //     fetch(`http://localhost:5000/my-service/${id}`, {
-    //         method: 'PUT',
-    //         headers: {
-    //             'content-type': 'application/json'
-    //         },
-    //         body: JSON.stringify(service)
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             console.log(data);
-    //             if (data.acknowledged) {
-    //                 toast.success('Service added to Add Service');
-    //             }
-    //         })
-    //         .catch(err => console.error('err', err));
-    // };
 
     return (
         <>
