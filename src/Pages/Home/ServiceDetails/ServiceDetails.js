@@ -49,11 +49,10 @@ const ServiceDetails = () => {
                     <p className='text-2xl font-semibold'>
                         Price: $<span className='text-orange-600'>{price}</span>
                     </p>
-                    <p>Product Id: <span className='text-accent'>{_id}</span></p>
                     <p> {description} </p>
                     {/* <p><button onClick={() => handleAddToService(_id)} className='badge'>Add Service</button></p> */}
                     <Link to={`/add-review/${_id}`}>
-                        <button className='btn btn-outline btn-accent w-full font-bold'>Post Review</button>
+                        <button className='btn btn-outline btn-accent w-full font-bold'>Post / Edit Review</button>
                     </Link>
                 </div>
             </div>

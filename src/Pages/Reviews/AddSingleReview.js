@@ -15,10 +15,10 @@ const AddSingleReview = ({ service }) => {
 
     // get review
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews?user_email=${user?.email}`)
+        fetch(`http://localhost:5000/reviews-email-id?user_email=${user?.email}&product_id=${_id}`)
             .then(res => res.json())
             .then(data => setUserReview(data));
-    }, [user?.email, userReview]);
+    }, [user?.email, _id, userReview]);
 
     const userReviewObject = userReview.find(review => review.user_email === user?.email);
 
@@ -53,6 +53,7 @@ const AddSingleReview = ({ service }) => {
             setShowLoginBtn(loginButton);
         }
         else {
+
             // Create (C) or Update (U)
             fetch(`http://localhost:5000/reviews/${_id}`, {
                 method: 'PUT',

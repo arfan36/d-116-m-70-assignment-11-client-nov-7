@@ -21,7 +21,6 @@ const AllReview = ({ review, handleReviewDelete }) => {
                         <p>Name: <span className='text-accent font-bold'>{product_name}</span></p>
                         <p></p>
                     </div>
-                    <p className='text-sm'>Review Id: <span className='text-accent'>{_id}</span></p>
                     <p className='italic mt-3'>"{review_message}"</p>
                 </div>
                 {
