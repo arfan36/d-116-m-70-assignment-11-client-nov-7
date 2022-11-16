@@ -1,11 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import 'react-photo-view/dist/react-photo-view.css';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import toast from 'react-hot-toast';
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const ServiceCard = ({ service }) => {
-    const { _id, name, img, price, description } = service;
+    const { user } = useContext(AuthContext);
+    const { _id, name, img, price, description, rating } = service;
+
+    const addService = {
+        _id: _id,
+        name: name,
+        img: img,
+        price: price,
+        description: description,
+        rating: rating,
+        user_email: user?.email ? user?.email : 'unregister'
+    };
 
     // handle Add Service
     const handleAddToService = (id) => {
@@ -14,7 +26,7 @@ const ServiceCard = ({ service }) => {
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(service)
+            body: JSON.stringify(addService)
         })
             .then(res => res.json())
             .then(data => {
@@ -55,7 +67,10 @@ const ServiceCard = ({ service }) => {
                             </>
                     }
                 </p>
-                <p><button onClick={() => handleAddToService(_id)} className='badge'>Add Service</button></p>
+                {
+                    user?.email &&
+                    <p><button onClick={() => handleAddToService(_id)} className='badge'>Add Service</button></p>
+                }
                 <Link to={`/service/${_id}`}>
                     <button className='btn btn-outline btn-accent w-full'>View Details</button>
                 </Link>

@@ -22,32 +22,32 @@ const UpdateReview = () => {
         _id
     } = storeReview;
 
-    const service = {
-        _id: product_id,
-        name: product_name,
-        img: product_img,
-        price: product_price,
-        description: product_description
-    };
+    // const service = {
+    //     _id: product_id,
+    //     name: product_name,
+    //     img: product_img,
+    //     price: product_price,
+    //     description: product_description
+    // };
 
-    // handle Add Service
-    const handleAddToService = (id) => {
-        fetch(`http://localhost:5000/my-service/${id}`, {
-            method: 'PUT',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(service)
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                if (data.acknowledged) {
-                    toast.success('Service added to Add Service');
-                }
-            })
-            .catch(err => console.error('err', err));
-    };
+    // // handle Add Service
+    // const handleAddToService = (id) => {
+    //     fetch(`http://localhost:5000/my-service/${id}`, {
+    //         method: 'PUT',
+    //         headers: {
+    //             'content-type': 'application/json'
+    //         },
+    //         body: JSON.stringify(service)
+    //     })
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             console.log(data);
+    //             if (data.acknowledged) {
+    //                 toast.success('Service added to Add Service');
+    //             }
+    //         })
+    //         .catch(err => console.error('err', err));
+    // };
 
     const navigate = useNavigate();
 
@@ -108,7 +108,7 @@ const UpdateReview = () => {
                     </p>
                     <p>Product Id: <span className='text-accent'>{product_id}</span></p>
                     <p> {product_description} </p>
-                    <p><button onClick={() => handleAddToService(product_id)} className='badge'>Add Service</button></p>
+                    {/* <p><button onClick={() => handleAddToService(product_id)} className='badge'>Add Service</button></p> */}
                     <Link to={`/service/${product_id}`}>
                         <button className='btn btn-outline btn-accent w-full font-bold'>All Review</button>
                     </Link>

@@ -1,12 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import './AddService.css';
 import AddServiceHome from './AddServiceHome';
 
 const AddService = () => {
 
     const [services, setServices] = useState([]);
+    const { user } = useContext(AuthContext);
+
     useEffect(() => {
         // limit 3 items route
         fetch(`http://localhost:5000/my-service`)
@@ -51,7 +54,7 @@ const AddService = () => {
             </div>
             <div className='text-center mt-4'>
                 {
-                    services.length === 0 ||
+                    services.find(service => service.user_email === user?.email) &&
                     <Link to={'/my-service-all'}>
                         <button className='btn btn-accent'>See All</button>
                     </Link>
