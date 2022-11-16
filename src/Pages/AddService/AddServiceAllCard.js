@@ -4,7 +4,7 @@ import { PhotoProvider, PhotoView } from 'react-photo-view';
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 
-const AddServiceAllCard = ({ service }) => {
+const AddServiceAllCard = ({ service, handleDeleteService }) => {
     const { _id, name, img, price, description } = service;
 
     // handle Add Service
@@ -55,7 +55,7 @@ const AddServiceAllCard = ({ service }) => {
                             </>
                     }
                 </p>
-                <p><button onClick={() => handleAddToService(_id)} className='badge'>Add Service</button></p>
+                <p><button onClick={() => handleDeleteService(_id)} className='badge badge-warning'>Delete Service</button></p>
                 <Link to={`/service/${_id}`}>
                     <button className='btn btn-outline btn-accent w-full'>View Details</button>
                 </Link>

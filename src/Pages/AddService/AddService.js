@@ -50,9 +50,16 @@ const AddService = () => {
                 }
             </div>
             <div className='text-center mt-4'>
-                <Link to={'/my-service-all'}>
-                    <button className='btn btn-accent'>See All</button>
-                </Link>
+                {
+                    services.length === 0 ||
+                    <Link to={'/my-service-all'}>
+                        <button className='btn btn-accent'>See All</button>
+                    </Link>
+                }
+                {
+                    services.length === 0 &&
+                    <p className='text-2xl text-accent font-bold'>No service item added yet</p>
+                }
             </div>
         </div>
     );

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 import useTitle from '../../hooks/useTitle';
 import AddServiceAllCard from './AddServiceAllCard';
 
@@ -11,7 +12,30 @@ const AddServiceAll = () => {
         fetch('http://localhost:5000/my-service-all')
             .then(res => res.json())
             .then(data => setServiceAll(data));
-    }, []);
+    }, [serviceAll]);
+
+
+    // handle delete
+    const handleDeleteService = (id) => {
+        const proceed = window.confirm(`Are you sure you want to delete this item`);
+        if (proceed) {
+            fetch(`http://localhost:5000/my-service/${id}`, {
+                method: 'DELETE',
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.deletedCount > 0) {
+                        console.log(data);
+                        toast.success('Added Service deleted');
+                        const remaining = serviceAll.filter(service => service._id !== id);
+                        setServiceAll(remaining);
+                    }
+                })
+                .catch(err => console.error('err', err));
+        }
+    };
+
+
     return (
         <div className='service py-8 mb-8 rounded-2xl'>
             <div className='text-center mb-4 w-3/4 mx-auto'>
@@ -22,7 +46,14 @@ const AddServiceAll = () => {
                     serviceAll.map(service => <AddServiceAllCard
                         key={service._id}
                         service={service}
+                        handleDeleteService={handleDeleteService}
                     ></AddServiceAllCard>)
+                }
+            </div>
+            <div className='text-center my-10'>
+                {
+                    serviceAll.length === 0 &&
+                    <p className='text-2xl text-accent font-bold'>No service item added yet</p>
                 }
             </div>
         </div>
