@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
 import { useLoaderData } from 'react-router-dom';
+import useTitle from '../../hooks/useTitle';
 import SingleReview from './SingleReview';
 
 const MyReview = () => {
+    useTitle('My Review - ');
     const myReviews = useLoaderData();
     const [displayReview, setDisplayReview] = useState(myReviews);
 
