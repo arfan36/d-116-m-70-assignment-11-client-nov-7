@@ -7,9 +7,9 @@ import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 import { FaUserCircle } from "react-icons/fa";
 
+
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
-
     const handleLogOut = () => {
         logOut().then(() => {
             toast.success('successfully logout');
@@ -17,9 +17,9 @@ const Header = () => {
             console.error('err', err);
         });
     };
-
     const menuItems = <>
         <li className='font-semibold'><Link to={'/'}>Home</Link></li>
+        <li className='font-semibold'><Link to={'/blogs'}>Blogs</Link></li>
         {
             user?.email ?
                 <>
@@ -62,7 +62,6 @@ const Header = () => {
             </Link>
         </li>
     </>;
-
     return (
         <div className="navbar h-20 mb-6 bg-base-200">
             <div className="navbar-start">
@@ -79,7 +78,7 @@ const Header = () => {
                     <h1 className='text-2xl ml-2'>Foodie</h1>
                 </Link>
             </div>
-            <div className="navbar-end hidden lg:flex">
+            <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
                     {menuItems}
                 </ul>
@@ -87,5 +86,4 @@ const Header = () => {
         </div>
     );
 };
-
 export default Header;

@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layout/Main";
 import AddServiceAll from "../../Pages/AddService/AddServiceAll";
+import Blogs from "../../Pages/Blogs/Blogs";
 import Error from "../../Pages/Error/Error";
 import Home from "../../Pages/Home/Home/Home";
 import ServiceAll from "../../Pages/Home/ServiceAll/ServiceAll";
@@ -65,7 +66,13 @@ const router = createBrowserRouter([
             },
             {
                 path: '/my-service-all',
-                element: <AddServiceAll></AddServiceAll>
+                element: <PrivateRoute>
+                    <AddServiceAll></AddServiceAll>
+                </PrivateRoute>
+            },
+            {
+                path: '/blogs',
+                element: <Blogs></Blogs>
             },
         ]
     },
