@@ -18,7 +18,7 @@ const AddSingleReview = ({ service }) => {
         fetch(`http://localhost:5000/reviews-email-id?user_email=${user?.email}&product_id=${_id}`)
             .then(res => res.json())
             .then(data => setUserReview(data));
-    }, [user?.email, _id, userReview]);
+    }, [user?.email, _id]);
 
     const userReviewObject = userReview.find(review => review.user_email === user?.email);
 
@@ -55,11 +55,11 @@ const AddSingleReview = ({ service }) => {
         else {
 
             // Create (C) or Update (U)
-            fetch(`http://localhost:5000/reviews/${_id}`, {
+            fetch(`http://localhost:5000/reviews?user_email=${user?.email}&product_id=${_id}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json',
-                    authorization: `Bearer ${localStorage.getItem('foodie')}`
+                    // authorization: `Bearer ${localStorage.getItem('foodie')}`
                 },
                 body: JSON.stringify(review)
             })
