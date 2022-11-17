@@ -16,7 +16,7 @@ const ServiceCard = ({ service }) => {
         price: price,
         description: description,
         rating: rating,
-        user_email: user?.email ? user?.email : 'unregister'
+        user_email: user?.email
     };
 
     // handle Add Service

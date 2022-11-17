@@ -6,7 +6,7 @@ import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const AddServiceAllCard = ({ service, handleDeleteService }) => {
     const { user } = useContext(AuthContext);
-    const { _id, name, img, price, description, user_email } = service;
+    const { _id, product_id, name, img, price, description, user_email, dateAdded } = service;
 
     return (
         <>
@@ -29,6 +29,7 @@ const AddServiceAllCard = ({ service, handleDeleteService }) => {
                         <p className='text-2xl font-semibold'>
                             Price: $<span className='text-orange-600'>{price}</span>
                         </p>
+                        <p className='text-accent'>{dateAdded}</p>
                         <p>
                             {
                                 description.length < 100 ?
@@ -44,7 +45,7 @@ const AddServiceAllCard = ({ service, handleDeleteService }) => {
                             user?.email &&
                             <p><button onClick={() => handleDeleteService(_id)} className='badge badge-warning'>Delete Service</button></p>
                         }
-                        <Link to={`/service/${_id}`}>
+                        <Link to={`/service/${product_id}`}>
                             <button className='btn btn-outline btn-accent w-full'>View Details</button>
                         </Link>
                     </div>

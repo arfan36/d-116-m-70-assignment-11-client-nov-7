@@ -5,7 +5,7 @@ import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 const AllReview = ({ review, handleReviewDelete }) => {
     const { user } = useContext(AuthContext);
 
-    const { _id, product_name, user_name, user_email, user_photoURL, review_message } = review;
+    const { _id, product_name, user_name, user_email, user_photoURL, review_message, dateAdded } = review;
 
     return (
         <div >
@@ -19,7 +19,7 @@ const AllReview = ({ review, handleReviewDelete }) => {
                 <div className='flex flex-col'>
                     <div className='flex justify-between'>
                         <p>Name: <span className='text-accent font-bold'>{product_name}</span></p>
-                        <p></p>
+                        <p>{dateAdded}</p>
                     </div>
                     <p className='italic mt-3'>"{review_message}"</p>
                 </div>

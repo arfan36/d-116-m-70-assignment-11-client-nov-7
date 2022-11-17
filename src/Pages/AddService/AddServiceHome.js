@@ -6,7 +6,7 @@ import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const AddServiceHome = ({ service, handleDeleteService }) => {
     const { user } = useContext(AuthContext);
-    const { _id, product_id, name, img, price, description } = service;
+    const { _id, product_id, name, img, price, description, dateAdded } = service;
 
     return (
         <div className="card w-80 bg-base-100 shadow-xl">
@@ -26,6 +26,7 @@ const AddServiceHome = ({ service, handleDeleteService }) => {
                 <p className='text-2xl font-semibold'>
                     Price: $<span className='text-orange-600'>{price}</span>
                 </p>
+                <p className='text-accent'>{dateAdded}</p>
                 <p>
                     {
                         description.length < 100 ?
