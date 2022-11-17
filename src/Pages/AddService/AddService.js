@@ -12,10 +12,10 @@ const AddService = () => {
 
     useEffect(() => {
         // limit 3 items route
-        fetch(`http://localhost:5000/my-service`)
+        fetch(`http://localhost:5000/my-service?user_email=${user?.email}`)
             .then(res => res.json())
             .then(data => setServices(data));
-    }, [services]);
+    }, [user?.email, services]);
 
     // handle delete
     const handleDeleteService = (id) => {
