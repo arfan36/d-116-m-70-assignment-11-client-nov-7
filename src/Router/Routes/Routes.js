@@ -44,17 +44,17 @@ const router = createBrowserRouter([
             },
             {
                 path: '/service/:id',
-                loader: ({ params }) => fetch(`http://localhost:5000/service/${params.id}`),
+                loader: ({ params }) => fetch(`https://d-116-1-m-70-assignment-11-server-nov-7.vercel.app/service/${params.id}`),
                 element: <ServiceDetails></ServiceDetails>,
             },
             {
                 path: '/add-review/:id',
-                loader: ({ params }) => fetch(`http://localhost:5000/service/${params.id}`),
+                loader: ({ params }) => fetch(`https://d-116-1-m-70-assignment-11-server-nov-7.vercel.app/service/${params.id}`),
                 element: <AddReview></AddReview>
             },
             {
                 path: '/update-review/:id',
-                loader: ({ params }) => fetch(`http://localhost:5000/reviews/${params.id}`),
+                loader: ({ params }) => fetch(`https://d-116-1-m-70-assignment-11-server-nov-7.vercel.app/reviews/${params.id}`),
                 element: <UpdateReview></UpdateReview>
             },
             {

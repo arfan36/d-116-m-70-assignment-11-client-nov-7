@@ -21,7 +21,7 @@ const ServiceCard = ({ service }) => {
 
     // handle Add Service
     const handleAddToService = () => {
-        fetch(`http://localhost:5000/my-service?user_email=${user?.email}&product_id=${_id}`, {
+        fetch(`https://d-116-1-m-70-assignment-11-server-nov-7.vercel.app/my-service?user_email=${user?.email}&product_id=${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

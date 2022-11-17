@@ -29,7 +29,7 @@ const UpdateReview = () => {
         const form = event.target;
 
         // update (U)
-        fetch(`http://localhost:5000/reviews/${userReview._id}`, {
+        fetch(`https://d-116-1-m-70-assignment-11-server-nov-7.vercel.app/reviews/${userReview._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',

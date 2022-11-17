@@ -6,7 +6,7 @@ const PriceChart = () => {
     const [foods, setFoods] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/service-all`)
+        fetch(`https://d-116-1-m-70-assignment-11-server-nov-7.vercel.app/service-all`)
             .then(res => res.json())
             .then(data => {
                 const foodsData = data.map(foods => {

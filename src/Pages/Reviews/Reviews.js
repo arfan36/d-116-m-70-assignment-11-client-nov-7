@@ -13,7 +13,7 @@ const Reviews = ({ service }) => {
 
     // get users review from api
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews?user_email=${user?.email}`, {
+        fetch(`https://d-116-1-m-70-assignment-11-server-nov-7.vercel.app/reviews?user_email=${user?.email}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('foodie')}`
             }
@@ -26,7 +26,7 @@ const Reviews = ({ service }) => {
     const handleReviewDelete = (id) => {
         const proceed = window.confirm(`Are you sure you want to delete this review?`);
         if (proceed) {
-            fetch(`http://localhost:5000/reviews/${id}`, {
+            fetch(`https://d-116-1-m-70-assignment-11-server-nov-7.vercel.app/reviews/${id}`, {
                 method: 'DELETE',
             })
                 .then(res => res.json())
@@ -44,7 +44,7 @@ const Reviews = ({ service }) => {
 
     // Read (R) by req.query.product_id
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews-id?product_id=${_id}`, {
+        fetch(`https://d-116-1-m-70-assignment-11-server-nov-7.vercel.app/reviews-id?product_id=${_id}`, {
             // headers: {
             //     authorization: `Bearer ${localStorage.getItem('foodie')}`
             // }

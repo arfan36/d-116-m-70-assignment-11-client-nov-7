@@ -9,7 +9,7 @@ const AddServiceAll = () => {
 
     useEffect(() => {
         // all items route
-        fetch('http://localhost:5000/my-service-all')
+        fetch('https://d-116-1-m-70-assignment-11-server-nov-7.vercel.app/my-service-all')
             .then(res => res.json())
             .then(data => setServiceAll(data));
     }, [serviceAll]);
@@ -19,7 +19,7 @@ const AddServiceAll = () => {
     const handleDeleteService = (id) => {
         const proceed = window.confirm(`Are you sure you want to delete this item`);
         if (proceed) {
-            fetch(`http://localhost:5000/my-service/${id}`, {
+            fetch(`https://d-116-1-m-70-assignment-11-server-nov-7.vercel.app/my-service/${id}`, {
                 method: 'DELETE',
             })
                 .then(res => res.json())

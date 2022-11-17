@@ -7,7 +7,7 @@ const Service = () => {
     const [services, setServices] = useState([]);
     useEffect(() => {
         // limit 3 items route
-        fetch('http://localhost:5000/services')
+        fetch('https://d-116-1-m-70-assignment-11-server-nov-7.vercel.app/services')
             .then(res => res.json())
             .then(data => setServices(data));
     }, []);

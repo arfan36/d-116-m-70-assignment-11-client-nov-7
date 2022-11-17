@@ -15,7 +15,7 @@ const AddSingleReview = ({ service }) => {
 
     // get review
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews-email-id?user_email=${user?.email}&product_id=${_id}`, {
+        fetch(`https://d-116-1-m-70-assignment-11-server-nov-7.vercel.app/reviews-email-id?user_email=${user?.email}&product_id=${_id}`, {
             // headers: {
             //     authorization: `Bearer ${localStorage.getItem('foodie')}`
             // }
@@ -59,7 +59,7 @@ const AddSingleReview = ({ service }) => {
         else {
 
             // Create (C) or Update (U)
-            fetch(`http://localhost:5000/reviews?user_email=${user?.email}&product_id=${_id}`, {
+            fetch(`https://d-116-1-m-70-assignment-11-server-nov-7.vercel.app/reviews?user_email=${user?.email}&product_id=${_id}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json',
