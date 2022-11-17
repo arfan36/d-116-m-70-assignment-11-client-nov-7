@@ -54,7 +54,7 @@ const AddService = () => {
             </div>
             <div className='text-center mt-4'>
                 {
-                    services.find(service => service.user_email === user?.email) &&
+                    services.find(service => service?.user_email === user?.email) &&
                     <Link to={'/my-service-all'}>
                         <button className='btn btn-accent'>See All</button>
                     </Link>
