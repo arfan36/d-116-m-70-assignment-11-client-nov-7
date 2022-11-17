@@ -40,7 +40,7 @@ const PriceChart = () => {
                 <YAxis />
                 <Tooltip />
                 <Legend />
-                <Bar dataKey="price" barSize={20} fill="#00c781" />
+                <Bar dataKey="price" barSize={20} fill="#4eae91" />
             </BarChart>
         </div>
     );

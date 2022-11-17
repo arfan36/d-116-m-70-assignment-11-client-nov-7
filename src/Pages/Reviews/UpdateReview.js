@@ -32,7 +32,8 @@ const UpdateReview = () => {
         fetch(`http://localhost:5000/reviews/${userReview._id}`, {
             method: 'PUT',
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                // authorization: `Bearer ${localStorage.getItem('foodie')}`
             },
             body: JSON.stringify(userReview)
         })

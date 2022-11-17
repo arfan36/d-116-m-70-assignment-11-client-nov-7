@@ -15,7 +15,11 @@ const AddSingleReview = ({ service }) => {
 
     // get review
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews-email-id?user_email=${user?.email}&product_id=${_id}`)
+        fetch(`http://localhost:5000/reviews-email-id?user_email=${user?.email}&product_id=${_id}`, {
+            // headers: {
+            //     authorization: `Bearer ${localStorage.getItem('foodie')}`
+            // }
+        })
             .then(res => res.json())
             .then(data => setUserReview(data));
     }, [user?.email, _id]);
@@ -59,7 +63,6 @@ const AddSingleReview = ({ service }) => {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json',
-                    // authorization: `Bearer ${localStorage.getItem('foodie')}`
                 },
                 body: JSON.stringify(review)
             })

@@ -13,7 +13,11 @@ const Reviews = ({ service }) => {
 
     // get users review from api
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews?email=${user?.email}`)
+        fetch(`http://localhost:5000/reviews?user_email=${user?.email}`, {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('foodie')}`
+            }
+        })
             .then(res => res.json())
             .then(data => setDisplayReview(data));
     }, [user?.email]);
@@ -41,15 +45,11 @@ const Reviews = ({ service }) => {
     // Read (R) by req.query.product_id
     useEffect(() => {
         fetch(`http://localhost:5000/reviews-id?product_id=${_id}`, {
-            headers: {
-                authorization: `Bearer ${localStorage.getItem('foodie')}`
-            }
+            // headers: {
+            //     authorization: `Bearer ${localStorage.getItem('foodie')}`
+            // }
         })
             .then(res => {
-                if (res.status === 401 || res.status === 403) {
-                    localStorage.removeItem('foodie');
-                    return logOut();
-                }
                 return res.json();
             })
             .then(data => {

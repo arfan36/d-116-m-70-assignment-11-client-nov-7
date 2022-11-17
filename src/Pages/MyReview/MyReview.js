@@ -1,13 +1,30 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
-import { useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import useTitle from '../../hooks/useTitle';
 import SingleReview from './SingleReview';
 
 const MyReview = () => {
     useTitle('My Review - ');
-    const myReviews = useLoaderData();
-    const [displayReview, setDisplayReview] = useState(myReviews);
+    const [displayReview, setDisplayReview] = useState([]);
+    const { user } = useContext(AuthContext);
+
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/reviews?user_email=${user?.email}`, {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('foodie')}`
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                setDisplayReview(data);
+            })
+            .catch(err => console.error('err', err));
+    }, [user?.email]);
+
+
+
 
     // handle Delete
     const handleReviewDelete = (id) => {
