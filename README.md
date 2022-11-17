@@ -14,4 +14,11 @@ Click here for the live site: [https://assignment-11-bf5a4.firebaseapp.com/](htt
 
 # Features on this website
 
-* Food delivery review site
+* Food Price and review site,
+* The homepage have a navbar, slider (6 picture),
+* Total 6 service (home page 3), click "see all" to view all,
+* When clicking on the image, the picture will be viewed on full screen,
+* Clicking on "view details", you can see all review and even you can add yours,
+* Two typed signUp and login system (email and google),
+* Once a user logged in, he/she will see more options like My reviews, Add service, Blog, logOut,
+* Basic JWT Added on My reviews route,
