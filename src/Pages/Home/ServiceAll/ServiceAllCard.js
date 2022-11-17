@@ -20,8 +20,8 @@ const ServiceAllCard = ({ service }) => {
     };
 
     // handle Add Service
-    const handleAddToService = (id) => {
-        fetch(`http://localhost:5000/my-service/${id}`, {
+    const handleAddToService = () => {
+        fetch(`http://localhost:5000/my-service?user_email=${user?.email}&product_id=${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
