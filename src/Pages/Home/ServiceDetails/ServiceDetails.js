@@ -31,7 +31,7 @@ const ServiceDetails = () => {
                     </p>
                     <p> {description} </p>
                     <Link to={`/add-review/${_id}`}>
-                        <button className='btn btn-outline btn-accent w-full font-bold'>Post Review</button>
+                        <button className='btn btn-outline btn-accent w-full font-bold'>Post / Edit Review</button>
                     </Link>
                 </div>
             </div>
